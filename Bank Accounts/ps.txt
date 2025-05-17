@@ -1,0 +1,16 @@
+you are going to receive n payments in the upcoming month. The payments are numbered from 0 to n−1, and p_i denotes the amount of money in dollars that will be paid in connection with the i 
+th
+  payment. Before receiving the payments, you have two banking options to consider:
+
+Current Account with Transaction Fees: You can receive all the payments on your current bank account, remembering that the bank charges you for each payment i, 
+max(k,x, where k and x are given.
+
+New Special Account with Upfront Fee: You can pay the bank d dollars upfront to open a new special account for which the bank doesn't charge you for any of the upcoming transactions.
+
+Your task is to decide which of the above two options is more profitable for you. If both ways are equally profitable, then you prefer to be charged for each transaction.
+
+Input Format
+
+The first line contains a single integer q denoting the number of scenarios to handle. After that, descriptions of all these scenarios follow. In the first line of a single scenario, there are 4 space-separated integers n, k, x, d. In the second line, there are n space-separated integers p_0,p_1,
+ldots,p_n−1.
+

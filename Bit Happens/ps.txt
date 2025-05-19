@@ -1,0 +1,49 @@
+Problem Title: Bit Happens
+
+Core Task: You are a digital forensics expert tasked with analyzing various obscure file formats and network packet captures to uncover hidden information. Each test case presents you with a base64-encoded JSON object. This JSON contains data related to a shared bitmap file and a specific network packet capture, along with instructions for simulating a custom CPU architecture called MysticLang.
+
+For each test case within the JSON, you need to perform three distinct subtasks:
+
+Bitmap Extraction (Shared File):
+
+Search the base64-decoded content (assumed to be a .bmp file) for an ASCII-encoded string following the pattern ABC{<number>}, where <number> consists only of digits.
+Extract this numerical value.
+If the pattern is found, return the extracted number as an integer.
+If the pattern is not found, return 0.
+The method to find the hidden secret within the bitmap data might vary between test cases.
+Packet Pattern Search:
+
+Inspect the contents of the base64-decoded network packet capture data (assumed to be a .pcap file).
+Look for an ASCII-encoded string with the same pattern: ABC{<number>}.
+Extract the first occurrence of this numerical value.
+Calculate the result as (<number> % 10007) + 3.
+If the pattern is not found, the result for this subtask is 0 (and you do not add 3).
+MysticLang Memory Read:
+
+Simulate the execution of a MysticLang bytecode program, which is provided as a base64-encoded hexadecimal string. You are given the instruction set and format for this CPU.
+You are also given a memory_address (an integer between 0 and 255).
+Just before the halt instruction (FF) is executed in the MysticLang program, you need to read the value present at the specified memory_address.
+Interpret this memory value as an unsigned 8-bit integer.
+Return this integer value.
+Input:
+
+The input will be a single line containing a base64-encoded string.
+This string, when decoded, will represent a JSON object.
+This JSON object will contain one or more test cases within a "data" array.
+Each test case in the "data" array will likely contain:
+A base64-encoded string for the shared bitmap file (potentially under the key "pcap").
+A base64-encoded string for the network packet capture data (under the key "pcap").
+A base64-encoded string for the MysticLang bytecode (under the key "myst").
+An integer representing the memory_address for the MysticLang simulation.
+Output:
+
+For each test case in the input JSON, you need to output a single line containing three space-separated integers.
+These three integers represent the results of Subtask 1, Subtask 2, and Subtask 3, in that order.
+If the initial base64 decoding of the input string fails, or if any of the base64-encoded data for the subtasks is invalid, the output for that entire test case should be "0 0 0".
+Constraints:
+
+There will be one or more test cases in the input JSON.
+The memory_address will be an integer between 0 and 255 (inclusive).
+The MysticLang registers are 4-bit (values 0-15).
+MysticLang memory consists of 256 bytes (byte-addressed 0-255).
+In essence, you need to parse the JSON, decode the various base64 strings, perform the specified analysis for each subtask, and format the results as a sequence of three integers per test case.

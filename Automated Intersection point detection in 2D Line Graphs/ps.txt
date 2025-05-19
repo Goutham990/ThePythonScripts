@@ -1,0 +1,34 @@
+Okay, let's break down the problem statement clearly. Imagine you have pictures of simple graphs made of straight lines drawn on a flat surface (like paper).
+
+The Core Task:
+
+Your main job is to create a computer program (an algorithm) that can look at these images and automatically figure out how many times the lines in the graph cross each other. These crossing points are called intersection points.
+
+Why is this important?
+
+Analyzing graphs and finding where lines intersect is a common task in many fields, such as:
+
+Finance: Identifying trends and key points where different financial indicators meet.
+Economics: Analyzing supply and demand curves to find equilibrium points.
+Data Science: Finding relationships and critical junctures in visual representations of data.
+Doing this manually (by looking at the image and counting) can take a lot of time and is easy to get wrong, especially when the graphs are complex with many lines.
+
+What your program needs to do:
+
+Take an image as input: Your program will receive a digital image file (specifically a JPEG image). This image will contain a 2D line graph.
+Identify the lines: The program needs to be able to recognize the individual lines drawn in the image.
+Detect where the lines cross: It needs to find all the points where two or more lines intersect.
+Count the intersections: Finally, it needs to count the total number of these intersection points.
+Output a single number: The program should output only the final count of the intersection points.
+Important Rules and Constraints:
+
+Image Format: The input will be a JPEG image with a specific size (512 pixels wide by 512 pixels high).
+Graph Structure: The graph will be made up of straight lines.
+Line Thickness: Each line in the graph will be exactly 1 pixel thick.
+Axes: The image will contain an x-axis and a y-axis.
+No Axis Intersections: You should not count the points where the lines intersect with the x or y axis. Only count intersections between the lines of the graph themselves.
+Maximum Lines: There will be a maximum of 10 lines in each graph.
+Visibility: All the lines and all the intersection points will be fully visible within the boundaries of the image.
+In simple terms:
+
+You need to write a program that looks at a picture of a line graph and tells you how many times the lines cross each other, ignoring any crossings with the horizontal and vertical axes. The images will be simple, with thin lines, and everything will be visible. Your program just needs to output the final count of these crossings.

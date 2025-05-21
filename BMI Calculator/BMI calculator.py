@@ -1,80 +1,34 @@
-import tabulate
-import csv
+# Define a function to calculate BMI
+def calculate_bmi(weight_kg, height_cm):
+    # Convert height from centimeters to meters
+    height_m = height_cm / 100
 
+    # Calculate BMI using the formula: weight / (height in meters)^2
+    bmi = weight_kg / (height_m ** 2)
 
-def reference_chart():
-    """
-    This is a function used to tabulate the data
-    of the bmi scale for the user, this requries a csv file 'bmi.csv' and two libraries "csv" and "tabulate".
-    It won't take any arguments and won't return anything
-    """
-    list2 = []
-    with open("bmi.csv") as file1:
-        list1 = csv.reader(file1)
-        for line in list1:
-            list2.append(line)
-        print("Here You can take the reference chart \n")
-        print(tabulate.tabulate(list2[1:], headers=list2[0], tablefmt="fancy_grid"))
-
-
-def calculate_bmi(height, weight):
-    """
-    Calculate BMI given height (in meters) and weight (in kilograms).
-
-    Args:
-        height (float): Height in meters.
-        weight (float): Weight in kilograms.
-
-    Returns:
-        float: Calculated BMI.
-    """
-    try:
-        bmi = round(weight / (height**2), 2)
-        return bmi
-    except ZeroDivisionError:
-        return None
-
-
-def interpret_bmi(bmi):
-    """
-    Interpret the BMI and provide a classification.
-
-    Args:
-        bmi (float): Calculated BMI.
-
-    Returns:
-        str: BMI interpretation.
-    """
-    if bmi is None:
-        return "Invalid input. Height should be greater than 0."
-
+    # Determine the BMI category based on the value
     if bmi < 18.5:
-        return f"Your BMI is {bmi}, you are underweight."
-    elif bmi < 24.9:
-        return f"Your BMI is {bmi}, you have a normal weight."
-    elif bmi < 29.9:
-        return f"Your BMI is {bmi}, you are overweight."
-    elif bmi < 34.9:
-        return f"Your BMI is {bmi}, you are obese (Class I)."
-    elif bmi < 39.9:
-        return f"Your BMI is {bmi}, you are obese (Class II)."
+        category = "Underweight"
+    elif 18.5 <= bmi < 24.9:
+        category = "Normal weight"
+    elif 25 <= bmi < 29.9:
+        category = "Overweight"
     else:
-        return f"Your BMI is {bmi}, you are obese (Class III)."
+        category = "Obese"
+
+    # Return the BMI value rounded to 2 decimal places, and the category
+    return round(bmi, 2), category
 
 
-def main():
-    reference_chart()
-    try:
-        height = float(input("Enter your height in meters: "))
-        weight = float(input("Enter your weight in kilograms: "))
+# -------- Main program starts here --------
 
-        bmi = calculate_bmi(height, weight)
-        result = interpret_bmi(bmi)
-        print(result)
+# Ask the user to enter their weight and height
+weight = float(input("Enter your weight in kilograms (kg): "))
+height = float(input("Enter your height in centimeters (cm): "))
 
-    except ValueError:
-        print("Invalid input. Please enter numerical values for height and weight.")
+# Call the function and store the results
+bmi_result, bmi_category = calculate_bmi(weight, height)
 
-
-if __name__ == "__main__":
-    main()
+# Print the results
+print(f"\nYour BMI is: {bmi_result}")
+print(f"Health Category: {bmi_category}")

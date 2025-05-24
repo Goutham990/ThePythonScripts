@@ -1,0 +1,28 @@
+In a Salesforce environment, there are n developers working on a collaborative task in a workspace, where they plan to transfer a debug log sequentially.
+
+Each developer has a unique ID in the range of 1 to n, inclusive. The developer with ID i will always transfer the log to the developer specified at logReceiver[i], and this transfer occurs every second. Developer 1 always starts with the debug log, and a developer always transfers the log to another developer.
+
+Determine which developer has the debug log after k seconds have passed.
+
+**Function Description:**
+Complete the function logTransferReceiver which has the following parameters:
+* int logReceiver[n]: An array where logReceiver[i] (1-indexed) is the ID of the developer to whom developer i will transfer the debug log.
+* int k: The duration in seconds for which the log is being transferred.
+
+**Return:**
+* int: The ID of the developer holding the debug log at time = k.
+
+**Constraints:**
+* 2 <= n <= 2 * 10^5
+* 1 <= logReceiver[i] <= n (It is guaranteed that logReceiver[i] != i)
+* 1 <= k <= 10^12
+
+**Example:**
+logReceiver = [2, 4, 1, 5, 3] (This means developer 1 transfers to 2, developer 2 to 4, developer 3 to 1, developer 4 to 5, developer 5 to 3)
+k = 6
+
+**Expected Output:**
+2 (As explained in the problem, after 6 seconds, the log is with developer 2)
+
+**Your task is to provide the Python code for the logTransferReceiver function.
+Consider the large value of k and design an efficient algorithm.**

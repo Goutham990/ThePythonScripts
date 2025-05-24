@@ -1,0 +1,27 @@
+The problem asks us to find the number of odd-length subarrays within a given efficiency array such that the median of each subarray is equal to efficiency[k].
+
+Here's a breakdown of the key information:
+
+Input:
+
+n: The number of employees (elements in the efficiency array).
+efficiency[n]: An array representing the efficiency scores of employees.
+k: An integer representing the index of the reference employee. The median value we are looking for is efficiency[k]. (Note: k is 1-indexed in the problem description, but typically 0-indexed in programming. We should clarify this or assume 0-indexed for implementation). The example uses k=4 and efficiency[4]=4, implying a 1-indexed k. For coding, it's safer to convert it to 0-indexed: k-1.
+Subarray: A sequence of consecutive elements in the array.
+
+Median of an odd-length array: For an odd-length array of size L, the median is the (L+1)/2-th element after sorting the subarray in non-decreasing order.
+
+Constraints:
+
+efficiency[k] occurs only once in the array.
+1≤n≤3×10 
+5
+ 
+1≤efficiency[i]≤10 
+9
+ 
+1≤k≤n
+Example:
+
+efficiency = [5, 3, 1, 4, 7], k = 4 (so efficiency[3] or efficiency[k-1] if 0-indexed, which is 4).
+The problem states there are 4 odd-length subarrays with 4 as their median.

@@ -1,0 +1,41 @@
+I have a problem involving optimizing a tree structure representing a Salesforce data hierarchy. I need to find the minimum possible diameter of this tree after performing a limited number of removal operations.
+
+Here's a breakdown of the problem:
+
+**1. Input:**
+   - n: An integer representing the number of data objects (nodes) in the hierarchy. ($1 \le n \le 1000$)
+   - k: An integer representing the maximum number of optimization operations allowed. ($0 \le k < n$)
+   - edges: A 2D array of integers, where edges[i] = [u, v] indicates a relationship (edge) between data objects u and v. There are n-1 such edges, forming a tree structure. ($1 \le u, v \le n$)
+
+**2. Data Hierarchy and Definitions:**
+   - The data hierarchy is a tree where nodes are data objects and edges are relationships.
+   - **Leaf Data Object:** A node with exactly one relationship (degree 1).
+   - **Distance:** The number of edges in the shortest path between two data objects.
+   - **Diameter:** The maximum distance among all pairs of data objects in the current hierarchy tree.
+
+**3. Optimization Operation:**
+   - In one operation, you can *remove a leaf data object and its single associated edge*.
+   - You can perform this operation at most k times.
+
+**4. Objective:**
+   - Return the *minimum possible diameter* of the hierarchy tree after performing at most k optimization operations.
+
+**5. Example Walkthrough (for clarity):**
+   - n = 5, k = 2
+   - edges = [[1, 2], [1, 4], [2, 3], [2, 5]]
+   - **Initial Graph:**
+     - Node 1 connected to 2, 4
+     - Node 2 connected to 1, 3, 5
+     - Node 3 connected to 2 (leaf)
+     - Node 4 connected to 1 (leaf)
+     - Node 5 connected to 2 (leaf)
+   - **Initial Diameter:** (You'll need to calculate this, but for the example, assume it's calculated)
+   - **Optimization Example:** If we remove leaf 3 (1 operation), and then leaf 5 (2 operations), the remaining graph is 1-2-4. The new diameter is 2 (distance between 1 and 4, or 4 and 2, or 2 and 1).
+
+**6. Task:**
+   - Provide a Python function optimizeHierarchy(n, k, edges) that calculates and returns the minimum possible diameter.
+   - Explain your approach and the algorithm used. Consider edge cases, especially when k is large enough to disconnect the tree or reduce it to a single node. The problem implicitly assumes the tree remains connected or has a well-defined diameter after removals. If n=1 or n=2 after removals, the diameter is 0 or 1 respectively. If it becomes disconnected, consider the diameter of the largest connected component, but typically for these problems, it stays connected or the diameter is taken as 0 if only one node remains. Assume for now that the diameter is 0 if only one node remains.
+
+**Constraint Notes:**
+- The tree always has n-1 edges.
+- Nodes are 1-indexed.

@@ -1,0 +1,14 @@
+# The Matrix Awakens: Real-Time ASCII Webcam
+
+This script captures video from your default webcam, converts each frame to grayscale, and then renders it as ASCII art directly in your terminal, creating a live, "digital rain" style video feed.
+
+## Features
+- Live video streaming from your webcam to the terminal.
+- Adjustable resolution for performance tuning.
+- Simple, single-file script.
+
+## Requirements
+You'll need Python 3 and the following libraries. Install them using pip:
+
+```bash
+pip install opencv-python numpy
